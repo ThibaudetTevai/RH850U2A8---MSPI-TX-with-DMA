@@ -46,8 +46,8 @@ Global variables and functions
 extern volatile uint32_t  g_mspi00_tx_num;                        /* mspi0 transmit data number */
 extern volatile uint32_t  g_mspi00_rx_num;                        /* mspi0 receive data number */
 extern volatile uint32_t  g_mspi00_rx_total_num;                  /* mspi0 receive data total times */
-extern volatile uint32_t * gp_mspi00_tx_address;                  /* mspi0 transmit buffer address */
-extern volatile uint32_t * gp_mspi00_rx_address;                  /* mspi0 receive buffer address */
+extern volatile uint16_t * gp_mspi00_tx_address;                  /* mspi0 transmit buffer address */
+extern volatile uint16_t * gp_mspi00_rx_address;                  /* mspi0 receive buffer address */
 void r_Config_MSPI00_callback_sendend(void);
 void r_Config_MSPI00_callback_receiveend(void);
 void r_Config_MSPI00_callback_error(uint32_t err_type);

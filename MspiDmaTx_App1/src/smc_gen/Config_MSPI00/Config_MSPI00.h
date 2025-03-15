@@ -40,7 +40,7 @@ Macro definitions (Register bit)
 Macro definitions
 ***********************************************************************************************************************/
 #define _MSPI00_CLOCK_FREQUENCY_DIVISION                          (0x000AU) /* MSPI clock frequency division */
-#define _MSPI00_FRAME_LENGTH                                      (0x0020U) /* MSPI frame length */
+#define _MSPI00_FRAME_LENGTH                                      (0x0010U) /* MSPI frame length */
 #define _MSPI00_HARDWARE_TRIGGER_DISABLE                          (0x00000000UL) /* MSPI hardware trigger disable */
 #define _MSPI00_SETUP_TIME                                        (0x0001U) /* MSPI setup time */
 #define _MSPI00_HOLD_TIME                                         (0x0001U) /* MSPI hold time */
@@ -59,8 +59,8 @@ Global functions
 void R_Config_MSPI00_Create(void);
 void R_Config_MSPI00_Start(void);
 void R_Config_MSPI00_Stop(void);
-MD_STATUS R_Config_MSPI00_Send(uint32_t* const tx_buf);
-MD_STATUS R_Config_MSPI00_Receive(uint32_t* const rx_buf);
+MD_STATUS R_Config_MSPI00_Send(uint16_t* const tx_buf);
+MD_STATUS R_Config_MSPI00_Receive(uint16_t* const rx_buf);
 void R_Config_MSPI00_Software_Trigger(void);
 void R_Config_MSPI00_Callback_Interrupt_Send(void);
 void R_Config_MSPI00_Callback_Interrupt_Receive(void);

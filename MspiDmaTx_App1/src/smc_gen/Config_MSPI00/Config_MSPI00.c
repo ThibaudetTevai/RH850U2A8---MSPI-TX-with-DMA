@@ -45,8 +45,8 @@ extern volatile uint32_t g_cg_sync_read;
 volatile uint32_t  g_mspi00_tx_num;                         /* mspi00 transmit data number */
 volatile uint32_t  g_mspi00_rx_num;                         /* mspi00 receive data number */
 volatile uint32_t  g_mspi00_rx_total_num;                   /* mspi00 receive data total times */
-volatile uint32_t * gp_mspi00_tx_address;                   /* mspi00 transmit buffer address */
-volatile uint32_t * gp_mspi00_rx_address;                   /* mspi00 receive buffer address */
+volatile uint16_t * gp_mspi00_tx_address;                   /* mspi00 transmit buffer address */
+volatile uint16_t * gp_mspi00_rx_address;                   /* mspi00 receive buffer address */
 /* Start user code for global. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 
@@ -213,10 +213,10 @@ void R_Config_MSPI00_Stop(void)
 * Return Value : MD_STATUS -
 *                    the status of sending
 ***********************************************************************************************************************/
-MD_STATUS R_Config_MSPI00_Send(uint32_t* const tx_buf)
+MD_STATUS R_Config_MSPI00_Send(uint16_t* const tx_buf)
 {
     /* Set transmit setting */
-    gp_mspi00_tx_address = (uint32_t *)tx_buf;
+    gp_mspi00_tx_address = (uint16_t *)tx_buf;
     g_mspi00_tx_num = _MSPI00_FRAME_COUNT;
 
     return MD_OK;
@@ -230,7 +230,7 @@ MD_STATUS R_Config_MSPI00_Send(uint32_t* const tx_buf)
 * Return Value : MD_STATUS -
 *                    the status of receiving
 ***********************************************************************************************************************/
-MD_STATUS R_Config_MSPI00_Receive(uint32_t* rx_buf)
+MD_STATUS R_Config_MSPI00_Receive(uint16_t* rx_buf)
 {
     /* Set receive setting */
     gp_mspi00_rx_address = rx_buf;

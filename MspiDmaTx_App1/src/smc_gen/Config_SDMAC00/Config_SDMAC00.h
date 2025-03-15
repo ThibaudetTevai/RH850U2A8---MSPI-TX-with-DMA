@@ -42,8 +42,9 @@ Macro definitions
 #define _DMAC00_SPID_Value                    (0x00001C00UL)
 #define _DMAC00_SOURCE_ADDRESS                (0xFE400000UL)
 #define _DMAC00_DESTINATION_ADDRESS           (0xFFC760C0UL)
-#define _DMAC00_TRANSFER_SIZE                 (0x00000004UL)
+#define _DMAC00_TRANSFER_SIZE                 (0x00000010UL)
 #define _DMAC00_UPPER_LIMIT_BUFFER            (0x00000080UL)
+#define _DMAC00_TRANSFER_COUNT                (0x00020000UL)
 
 /***********************************************************************************************************************
 Typedef definitions

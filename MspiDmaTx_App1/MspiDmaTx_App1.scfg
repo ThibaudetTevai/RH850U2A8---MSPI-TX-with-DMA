@@ -3259,7 +3259,7 @@
                     <item id="inter" input="1" vlaue="1"/>
                 </option>
                 <option enabled="true" id="framecount" selection="frame">
-                    <item id="frame" input="4" vlaue="4"/>
+                    <item id="frame" input="1" vlaue="1"/>
                 </option>
                 <option enabled="false" id="startaddress" selection="address">
                     <item id="address" input="0x0000" vlaue="0"/>
@@ -3274,7 +3274,7 @@
                     <item id="zero" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="length" selection="frame">
-                    <item id="frame" input="32" vlaue="32"/>
+                    <item id="frame" input="16" vlaue="16"/>
                 </option>
                 <option enabled="true" id="txnpriority" selection="Level15">
                     <item id="Level0" input="" vlaue="0"/>
@@ -4113,7 +4113,7 @@
                     <item id="fixed" input="" vlaue="0"/>
                     <item id="increased" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="sourceTransactionSize" selection="4ByteUnit">
+                <option enabled="true" id="sourceTransactionSize" selection="2ByteUnit">
                     <item id="1ByteUnit" input="" vlaue="0"/>
                     <item id="2ByteUnit" input="" vlaue="0"/>
                     <item id="4ByteUnit" input="" vlaue="0"/>
@@ -4139,7 +4139,7 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="transferSize" selection="transferSizeValue">
-                    <item id="transferSizeValue" input="4" vlaue="4"/>
+                    <item id="transferSizeValue" input="8" vlaue="8"/>
                 </option>
                 <option enabled="true" id="requestSource" selection="HWRequestGrp0">
                     <item id="autoRequest" input="" vlaue="0"/>
@@ -4595,14 +4595,14 @@
                     <item id="INTGTMA0ARU2" input="" vlaue="0"/>
                     <item id="INTGTMA0CMP" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="transferSizeLimit" selection="TE">
+                <option enabled="true" id="transferSizeLimit" selection="DMAjTMR_n.STS">
                     <item id="DMAjTMR_n.STS" input="" vlaue="0"/>
                     <item id="DMAjTMR_n.DTS" input="" vlaue="0"/>
                     <item id="DMAjTSR_n.TSR" input="" vlaue="0"/>
                     <item id="DSE" input="" vlaue="0"/>
                     <item id="TE" input="" vlaue="0"/>
                 </option>
-                <option enabled="false" id="transferCount" selection="transferCountValue">
+                <option enabled="true" id="transferCount" selection="transferCountValue">
                     <item id="transferCountValue" input="2" vlaue="2"/>
                 </option>
                 <option enabled="true" id="addressErrIntEnable" selection="checked">
