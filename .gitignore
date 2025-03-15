@@ -57,3 +57,4 @@ DefaultBuild/*
 MspiDmaTx_App1/DefaultBuild/*
 MspiDmaTx_App2/DefaultBuild/*
 *.mtud
+trash/*
