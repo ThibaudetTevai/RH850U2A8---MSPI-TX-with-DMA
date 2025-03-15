@@ -46,7 +46,6 @@ void user_initArray_tabTxData(void);
 
 #pragma section r0_disp32 "BuffTabTx" // Section address start at 0xFE400000
 uint32_t tabTxData[100];
-uint16_t cnt = 0;
 #pragma section default
 
 uint8_t EndSending = 0;
@@ -70,7 +69,6 @@ void main(void)
     R_MSPI_Start_Interrupt_MSPI0FE();
     R_MSPI_Start_Interrupt_MSPI0ERR();
     
-    //R_Config_MSPI00_Send(&tabTxData[cnt]);
     R_Config_SDMAC00_Start();
     R_Config_MSPI00_Start();
     R_Config_MSPI00_Software_Trigger();    ///< Start MSPI0
@@ -80,11 +78,7 @@ void main(void)
         D15 = 0;
         while(!EndSending); 
         D15 = 1;
-        EndSending = 0;        
-        R_Config_SDMAC00_Start();   
-        //R_Config_MSPI00_Start();
-        //R_Config_MSPI00_Send(&tabTxData[++cnt]); 
-        R_Config_MSPI00_Software_Trigger();    ///< Start MSPI0
+        EndSending = 0;
      }
     /* End user code. Do not edit comment generated here */
 }

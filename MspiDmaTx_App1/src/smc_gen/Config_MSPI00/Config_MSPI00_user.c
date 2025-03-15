@@ -85,10 +85,12 @@ void R_Config_MSPI00_Callback_Interrupt_Send(void)
 
         if (g_mspi00_tx_num > 0U)
         {
+            D12 = 1;
             /* Set transmit data */
             MSPI0.TXDA00.UINT32 = *gp_mspi00_tx_address;
             gp_mspi00_tx_address++;
             g_mspi00_tx_num--;
+            D12 = 0;
         }
         else
         {
@@ -210,6 +212,7 @@ void R_Config_MSPI00_Callback_Interrupt_Frameend(void)
         r_Config_MSPI00_callback_receiveend();
         /* Start user code for R_Config_MSPI00_Callback_Interrupt_Frameend. Do not edit comment generated here */
         EndSending = 1;
+        R_Config_MSPI00_Software_Trigger();
         /* End user code. Do not edit comment generated here */
     }
     MSPI0_INTF.MSPI0INTMSK2.UINT32 = temp_intmsk;
