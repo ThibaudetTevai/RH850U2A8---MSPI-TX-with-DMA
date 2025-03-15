@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<MicomToolCommonProjectFile Version="1.00">
+  <CreatorType Name="CubeSuite+" Version="V8.11.00  [30 Nov 2023]" />
+  <Placeholders>
+    <PlaceholderPrefix>%</PlaceholderPrefix>
+    <PlaceholderPostfix>%</PlaceholderPostfix>
+  </Placeholders>
+  <Project Name="MspiDmaTx" Type="Application">
+    <Files>
+      <Path>boot0.asm</Path>
+      <Path>boot1.asm</Path>
+      <Path>iodefine.h</Path>
+    </Files>
+    <DebugOptions>
+      <ConnectSettings>
+        <MainClock>10000000</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RH850">R7F702301B</Device>
+    <BuildOptions Name="CC-RH" Version="V2.06.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\boot0.obj</Path>
+          <Path>DefaultBuild\boot1.obj</Path>
+        </LinkOrder>
+        <CommonOptions />
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-Xfxu=off</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-debug</Option>
+          <Option>-nocompress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-library=v850e3v5\rhf8n.lib</Option>
+          <Option>-library=v850e3v5\libmalloc.lib</Option>
+          <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-start=RESET_PE0,EIINTTBL_PE0,RESET_PE1,EIINTTBL_PE1/0,.text/00005000</Option>
+          <Option>-memory=high</Option>
+          <Option>-nologo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-form=stype</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F702301B.DVF"</Option>
+          <Option>-o=C:\Users\Tev\Documents\MspiDmaTx\iodefine.h</Option>
+          <Option>-def=off</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+  </Project>
+  <Subproject Name="MspiDmaTx_App1" Type="Application">
+    <BaseDirectory>MspiDmaTx_App1</BaseDirectory>
+    <Files>
+      <Path>cstart0.asm</Path>
+      <Category Name="Smart Configurator">
+        <Category Name="Config_MSPI00">
+          <Path>src\smc_gen\Config_MSPI00\Config_MSPI00.c</Path>
+          <Path>src\smc_gen\Config_MSPI00\Config_MSPI00.h</Path>
+          <Path>src\smc_gen\Config_MSPI00\Config_MSPI00_user.c</Path>
+        </Category>
+        <Category Name="general">
+          <Path>src\smc_gen\general\r_cg_cgc.c</Path>
+          <Path>src\smc_gen\general\r_cg_cgc.h</Path>
+          <Path>src\smc_gen\general\r_cg_cgc_user.c</Path>
+          <Path>src\smc_gen\general\r_cg_intc_PE0.c</Path>
+          <Path>src\smc_gen\general\r_cg_intvector_PE0.c</Path>
+          <Path>src\smc_gen\general\r_cg_macrodriver.h</Path>
+          <Path>src\smc_gen\general\r_cg_main.c</Path>
+          <Path>src\smc_gen\general\r_cg_mspi.h</Path>
+          <Path>src\smc_gen\general\r_cg_mspi_common.c</Path>
+          <Path>src\smc_gen\general\r_cg_mspi_common.h</Path>
+          <Path>src\smc_gen\general\r_cg_mspi_common_user.c</Path>
+          <Path>src\smc_gen\general\r_cg_systeminit.c</Path>
+          <Path>src\smc_gen\general\r_cg_userdefine.h</Path>
+          <Path>src\smc_gen\general\r_smc_entry.h</Path>
+          <Path>src\smc_gen\general\r_smc_interrupt.c</Path>
+          <Path>src\smc_gen\general\r_smc_interrupt.h</Path>
+          <Path>src\smc_gen\general\r_smc_intprg.c</Path>
+          <Path>src\smc_gen\general\r_cg_port.h</Path>
+          <Path>src\smc_gen\general\r_cg_dma.h</Path>
+          <Path>src\smc_gen\general\r_cg_dma_common.c</Path>
+          <Path>src\smc_gen\general\r_cg_dma_common.h</Path>
+          <Path>src\smc_gen\general\r_cg_dma_common_user.c</Path>
+        </Category>
+        <Category Name="r_pincfg">
+          <Path>src\smc_gen\r_pincfg\Pin.c</Path>
+          <Path>src\smc_gen\r_pincfg\Pin.h</Path>
+        </Category>
+        <Category Name="Config_PORT">
+          <Path>src\smc_gen\Config_PORT\Config_PORT.c</Path>
+          <Path>src\smc_gen\Config_PORT\Config_PORT.h</Path>
+          <Path>src\smc_gen\Config_PORT\Config_PORT_user.c</Path>
+        </Category>
+        <Category Name="Config_SDMAC00">
+          <Path>src\smc_gen\Config_SDMAC00\Config_SDMAC00.c</Path>
+          <Path>src\smc_gen\Config_SDMAC00\Config_SDMAC00.h</Path>
+          <Path>src\smc_gen\Config_SDMAC00\Config_SDMAC00_user.c</Path>
+        </Category>
+      </Category>
+      <Path>iodefine.h</Path>
+    </Files>
+    <DebugOptions>
+      <ConnectSettings>
+        <MainClock>10000000</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RH850">R7F702301B</Device>
+    <BuildOptions Name="CC-RH" Version="V2.06.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\cstart0.obj</Path>
+          <Path>DefaultBuild\Config_MSPI00.obj</Path>
+          <Path>DefaultBuild\Config_MSPI00_user.obj</Path>
+          <Path>DefaultBuild\r_cg_cgc.obj</Path>
+          <Path>DefaultBuild\r_cg_cgc_user.obj</Path>
+          <Path>DefaultBuild\r_cg_intc_PE0.obj</Path>
+          <Path>DefaultBuild\r_cg_intvector_PE0.obj</Path>
+          <Path>DefaultBuild\r_cg_main.obj</Path>
+          <Path>DefaultBuild\r_cg_mspi_common.obj</Path>
+          <Path>DefaultBuild\r_cg_mspi_common_user.obj</Path>
+          <Path>DefaultBuild\r_cg_systeminit.obj</Path>
+          <Path>DefaultBuild\r_smc_interrupt.obj</Path>
+          <Path>DefaultBuild\r_smc_intprg.obj</Path>
+          <Path>DefaultBuild\Pin.obj</Path>
+          <Path>DefaultBuild\Config_PORT.obj</Path>
+          <Path>DefaultBuild\Config_PORT_user.obj</Path>
+          <Path>DefaultBuild\Config_SDMAC00.obj</Path>
+          <Path>DefaultBuild\Config_SDMAC00_user.obj</Path>
+          <Path>DefaultBuild\r_cg_dma_common.obj</Path>
+          <Path>DefaultBuild\r_cg_dma_common_user.obj</Path>
+        </LinkOrder>
+        <CommonOptions>
+          <IncludePathForC>src\smc_gen\Config_SDMAC00</IncludePathForC>
+          <IncludePathForC>src\smc_gen\Config_PORT</IncludePathForC>
+          <IncludePathForC>.</IncludePathForC>
+          <IncludePathForC>src\smc_gen\r_pincfg</IncludePathForC>
+          <IncludePathForC>src\smc_gen\general</IncludePathForC>
+          <IncludePathForC>src\smc_gen\Config_MSPI00</IncludePathForC>
+        </CommonOptions>
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-Isrc\smc_gen\Config_SDMAC00</Option>
+          <Option>-Isrc\smc_gen\Config_PORT</Option>
+          <Option>-I.</Option>
+          <Option>-Isrc\smc_gen\r_pincfg</Option>
+          <Option>-Isrc\smc_gen\general</Option>
+          <Option>-Isrc\smc_gen\Config_MSPI00</Option>
+          <Option>-Xfxu=off</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-debug</Option>
+          <Option>-nocompress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-library=v850e3v5\rhf8n.lib</Option>
+          <Option>-library=v850e3v5\libmalloc.lib</Option>
+          <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-start=EIINTTBL_PE0.const/00000200,.const,.INIT_DSEC.const,.INIT_BSEC.const,.text.cmn,.text,.data/00010000,.data.R,.bss,.stack.bss/FDE00000,BuffTabTx.bss/FE400000</Option>
+          <Option>-fsymbol=.text.cmn</Option>
+          <Option>-rom=.data=.data.R</Option>
+          <Option>-memory=high</Option>
+          <Option>-nologo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-form=stype</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F702301B.DVF"</Option>
+          <Option>-o=C:\Users\Tev\Documents\MspiDmaTx\MspiDmaTx_App1\iodefine.h</Option>
+          <Option>-def=off</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+    <Extension_SmcCodePartRH850>
+      <CodeGeneratorData></CodeGeneratorData>
+      <GenerateFileFolder>C:\Users\Tev\Documents\MspiDmaTx\MspiDmaTx_App1</GenerateFileFolder>
+      <SCFGFile>MspiDmaTx_App1.scfg</SCFGFile>
+      <SmcExePath>C:\Program Files (x86)\Renesas Electronics\SmartConfigurator\RH850\eclipse\SmartConfigurator.exe</SmcExePath>
+      <CodeGeneratorFilesGuid>d6023fa0-ebbe-4248-9efa-fff37f621641</CodeGeneratorFilesGuid>
+    </Extension_SmcCodePartRH850>
+  </Subproject>
+  <Subproject Name="MspiDmaTx_App2" Type="Application">
+    <BaseDirectory>MspiDmaTx_App2</BaseDirectory>
+    <Files>
+      <Path>cstart1.asm</Path>
+      <Path>main1.c</Path>
+      <Path>iodefine.h</Path>
+    </Files>
+    <DebugOptions>
+      <DebugTool>Simulator</DebugTool>
+      <ConnectSettings>
+        <MainClock>400000000</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RH850">R7F702301B</Device>
+    <BuildOptions Name="CC-RH" Version="V2.06.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\cstart1.obj</Path>
+          <Path>DefaultBuild\main1.obj</Path>
+        </LinkOrder>
+        <CommonOptions />
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-Xfxu=off</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-debug</Option>
+          <Option>-nocompress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-library=v850e3v5\rhf8n.lib</Option>
+          <Option>-library=v850e3v5\libmalloc.lib</Option>
+          <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-start=.const,.INIT_DSEC.const,.INIT_BSEC.const,.text.cmn,.text,.data/00011000,.data.R,.bss,.stack.bss/FDE00000</Option>
+          <Option>-fsymbol=.text.cmn</Option>
+          <Option>-rom=.data=.data.R</Option>
+          <Option>-memory=high</Option>
+          <Option>-nologo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-form=stype</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F702301B.DVF"</Option>
+          <Option>-o=C:\Users\Tev\Documents\MspiDmaTx\MspiDmaTx_App2\iodefine.h</Option>
+          <Option>-def=off</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+    <Extension_SmcCodePartRH850>
+      <CodeGeneratorData></CodeGeneratorData>
+      <GenerateFileFolder>C:\Users\Tev\Documents\MspiDmaTx\MspiDmaTx_App2</GenerateFileFolder>
+      <SCFGFile>MspiDmaTx_App2.scfg</SCFGFile>
+      <SmcExePath>C:\Program Files (x86)\Renesas Electronics\SmartConfigurator\RH850\eclipse\SmartConfigurator.exe</SmcExePath>
+      <CodeGeneratorFilesGuid>846a5d9f-af4b-48e4-87c7-7ca245f7a87d</CodeGeneratorFilesGuid>
+    </Extension_SmcCodePartRH850>
+  </Subproject>
+</MicomToolCommonProjectFile>
